@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<flights_data xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="flights_data.xsd">
+    <flight id="009DE1">
+        <country>South Africa</country>
+        <position>
+            <lat>-33.261337</lat>
+            <lng>19.947437</lng>
+        </position>
+        <status>en-route</status>
+        <departure_airport>
+            <country>nombre del pais?</country>
+            <name>Cape Town International Airport</name>
+        </departure_airport>
+        <arrival_airport>
+            <country>nombre del pais?</country>
+            <name>O.R Tambo International Airport</name>
+        </arrival_airport>
+    </flight>
+    <flight id="009DE1">
+        <position>
+            <lat>-33.261337</lat>
+            <lng>19.947437</lng>
+        </position>
+        <status>en-route</status>
+    </flight>
+</flights_data>
