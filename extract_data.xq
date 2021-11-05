@@ -21,12 +21,8 @@ declare function local:departure_airport($flight as element(response)){
     ()
 };
 <flights_data>{
-    for $flight in doc("flights.xml")//response
+    for $flight in doc("flights.xml")/root/response/response
         let $country := doc("countries.xml")//response[code = $flight/flag]
-        let $departure_airport := doc("airports.xml")//response[iata_code = $flight/dep_iata]
-        let $departure_country := doc("countries.xml")//response[code = $departure_airport/country_code]
-        let $arrival_airport := doc("airports.xml")//response[iata_code = $flight/arr_iata]
-        let $arrival_country := doc("countries.xml")//response[code = $arrival_airport/country_code]
         return <flight id = "{$flight/hex}">
             <country>{$country/name/text()}</country>
             <position>
