@@ -6,7 +6,11 @@ curl https://airlabs.co/api/v9/flights.xml?api_key=${AIRLABS_API_KEY} > flights.
 java net.sf.saxon.Query extract_data.xq > flights_data.xml
 if [$1 = ""]
 then
-    java net.sf.saxon.Transform -s:flights_data.xml -xsl:flights_data.xsl -o:output.tex
+    java net.sf.saxon.Transform -s:flights_data.xml -xsl:flights_data.xsl -o:report.tex
 else
-    java net.sf.saxon.Transform -s:flights_data.xml -xsl:flights_data.xsl qty=$1 -o:output.tex
+    java net.sf.saxon.Transform -s:flights_data.xml -xsl:flights_data.xsl qty=$1 -o:report.tex
 fi
+rm airports.xml
+rm countries.xml
+rm flights.xml
+
