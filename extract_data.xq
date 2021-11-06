@@ -20,7 +20,7 @@ declare function local:departure_airport($flight as element(response)){
     else
     ()
 };
-<flights_data>{
+<flights_data xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="flights_data.xsd">{
     for $flight in doc("flights.xml")/root/response/response
         let $country := doc("countries.xml")//response[code = $flight/flag]
         return <flight id = "{$flight/hex}">
