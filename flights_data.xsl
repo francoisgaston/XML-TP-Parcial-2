@@ -29,7 +29,14 @@
         \end{titlepage}
 
         \newpage
-        
+        <xsl:if test="count(//flight) &gt; 0 ">
+            <xsl:call-template name="Flights"/>
+        </xsl:if>
+        <xsl:apply-templates select="//error"/>
+        \end{document}
+    </xsl:template>
+
+    <xsl:template name="Flights">
         \begin{longtable}{|p{1.5cm}|p{2cm}|p{4cm}|p{1.5cm}|p{3cm}|p{2.5cm}|}
             \hline
             Flight ID <xsl:text disable-output-escaping="yes">&amp;</xsl:text> Country      <xsl:text disable-output-escaping="yes">&amp;</xsl:text> Position                 <xsl:text disable-output-escaping="yes">&amp;</xsl:text> Status   <xsl:text disable-output-escaping="yes">&amp;</xsl:text> Departure Airport               <xsl:text disable-output-escaping="yes">&amp;</xsl:text> Arrival Airport \\ \hline \hline
@@ -44,9 +51,9 @@
             </xsl:if>
             \hline
         \end{longtable}
-    \end{document}
     </xsl:template>
-    <xsl:template match="//flight" name="Flights">
+
+    <xsl:template match="//flight" name="Flight">
         <xsl:for-each select=".">
             <xsl:value-of select="./@id"/> <xsl:text disable-output-escaping="yes">&amp;</xsl:text> 
             <xsl:value-of select="./country"/> <xsl:text disable-output-escaping="yes">&amp;</xsl:text> (<xsl:value-of select="./position/lat"/> , <xsl:value-of select="./position/lng"/> <xsl:text disable-output-escaping="yes"> ) &amp;</xsl:text>
@@ -55,4 +62,14 @@
             <xsl:value-of select="./arrival_airport/name"/> \\
         </xsl:for-each>
     </xsl:template>
+
+    <xsl:template match="//error" name="catchErrors">
+            \vspace{0.75cm}
+            \LARGE
+            \textbf{ERROR:}
+            \vspace{0.5cm}
+            \Large
+            \textsl{<xsl:value-of select="."/>}
+    </xsl:template>
+
 </xsl:stylesheet>
