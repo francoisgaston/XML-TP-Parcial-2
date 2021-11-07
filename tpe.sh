@@ -13,4 +13,8 @@ fi
 rm airports.xml
 rm countries.xml
 rm flights.xml
+pdflatex report.tex > limpiar.txt
+rm report.aux
+rm report.log
+rm limpiar.txt
 
