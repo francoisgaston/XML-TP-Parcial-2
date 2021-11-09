@@ -13,7 +13,7 @@ declare function local:arrival_airport($flight as element(response)){
 declare function local:departure_airport($flight as element(response)){
     let $departure_airport := doc("airports.xml")//response[iata_code = $flight/dep_iata]
     let $departure_country := doc("countries.xml")//response[code = $departure_airport/country_code]
-    return if($departure_airport/name/text()!="" and $departure_airport/name/text()!="")then
+    return if($departure_airport/name/text()!="" and $departure_country/name/text()!="")then
     <departure_airport>
         <country>{$departure_country/name/text()}</country>
         <name>{$departure_airport/name/text()}</name>
@@ -36,5 +36,5 @@ declare function local:departure_airport($flight as element(response)){
             {local:arrival_airport($flight)}
         </flight>
     else
-        <error>Qty must be a numeric value or ommited in the script call</error>
+        <error>Qty must be a numeric value or omitted in the script call</error>
 }</flights_data>
