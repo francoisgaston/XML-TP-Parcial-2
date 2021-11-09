@@ -21,8 +21,7 @@ else
     java net.sf.saxon.Transform -s:flights_data.xml -xsl:flights_data.xsl -o:report.tex
 fi
 
-pdflatex report.tex > limpiar.txt
+pdflatex report.tex &> /dev/null
 rm report.aux
 rm report.log
-rm limpiar.txt
 

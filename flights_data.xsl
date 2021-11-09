@@ -63,8 +63,7 @@
         <xsl:for-each select=".">
             <xsl:value-of select="./@id"/> <xsl:text disable-output-escaping="yes">&amp;</xsl:text> 
             <xsl:value-of select="./country"/> <xsl:text disable-output-escaping="yes">&amp;</xsl:text>
-            (<xsl:value-of select="./position/lat"/> , 
-            <xsl:value-of select="./position/lng"/> <xsl:text disable-output-escaping="yes"> ) &amp;</xsl:text>
+            (<xsl:value-of select="./position/lat"/> , <xsl:value-of select="./position/lng"/>) <xsl:text disable-output-escaping="yes">&amp;</xsl:text>
             <xsl:value-of select="./status"/> <xsl:text disable-output-escaping="yes">&amp;</xsl:text>
             <xsl:value-of select="./departure_airport/name"/> <xsl:text disable-output-escaping="yes">&amp;</xsl:text> 
             <xsl:value-of select="./arrival_airport/name"/> \\
